@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- 반드시 타임리프 네임 스페이스 선언 필요 -->
+<head>
+<meta charset="UTF-8" /> <!-- 반드시 닫아줘야 한다. -->
+<title>Product Manager</title>
+<style>
+	table th, td {
+		padding: 10px;
+	}
+</style>
+</head>
+<body>
+	
+	<div align="center">
+		<h1>Product Manager</h1>
+		
+		<a href="new">Create New Product</a> <!-- 컨트롤러 RequestMapping("/new") -->
+		<table border="1">
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>제품명</th>
+					<th>브랜드</th>
+					<th>원산지</th>
+					<th>가격</th>
+					<th>관리</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="product : ${list}">
+					<td th:text="${product.id}"></td> <!-- ${개별변수.참조변수} -->
+					<td th:text="${product.name}"></td>
+					<td th:text="${product.brand}"></td>
+					<td th:text="${product.madein}"></td>
+					<td th:text="${product.price}"></td>
+					<td>
+						<a th:href="@{'/edit/' + ${product.id}}">Edit</a> &nbsp;&nbsp;&nbsp; 
+						<a th:href="@{'/delete/' + ${product.id}}">Delete</a> &nbsp;&nbsp;&nbsp;
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</body>
+</html>
