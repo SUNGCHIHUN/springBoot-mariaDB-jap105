@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>상품 수정</title>
+<style>
+	table th, td {
+		padding: 10px;
+	}
+</style>
+</head>
+<body>
+<div align="center">
+	<h1> Update Product </h1>
+	<!-- 컨트롤러로 값 전달하기 -->
+	<form action="#" th:action="@{/save}" th:object="${product}" method="post">
+		<table border="1">
+			<tr>
+				<th>Product Id: </th>
+				<td><input type="text" name="id" th:field="*{id}" placeholder="Id..." readonly></td>
+			</tr>
+			<tr>
+				<th>Product Name: </th>
+				<td><input type="text" name="name" th:field="*{name}" placeholder="Name..."></td>
+			</tr>
+			<tr>
+				<th>Product Brand: </th>
+				<td><input type="text" name="brand" th:field="*{brand}" placeholder="Brand..."></td>
+			</tr>
+			<tr>
+				<th>Product Madein </th>
+				<td><input type="text" name="madein" th:field="*{madein}" placeholder="Madein..."></td>
+			</tr>
+			<tr>
+				<th>Product Price </th>
+				<td><input type="text" name="price" th:field="*{price}" placeholder="Price..."></td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="submit" value="Update">
+					<input type="button" value="cancel" onclick="history.go(-1);">
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+</body>
+</html>
